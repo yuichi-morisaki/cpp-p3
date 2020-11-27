@@ -19,9 +19,10 @@ try {
             break;
         if (t.kind == ';')
             cout << "=" << val << '\n';
-        else
+        else {
             ts.putback(t);
-        val = expression();
+            val = expression();
+        }
     }
 
     return 0;
