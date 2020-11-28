@@ -1,0 +1,26 @@
+> = 36
+> = -8
+> Bad token
+> = '(' expected
+> = primary expected
+> = 0.666667
+> = primary expected
+> = primary expected
+> = primary expected
+> = primary expected
+> = primary expected
+> = divide by zero
+> = divide by zero
+> = primary expected
+> = -2
+> = -2
+> = 1.23457e+15
+> Bad token
+> = get: undefined name q
+> = primary expected
+> = get: undefined name Mary
+> = get: undefined name srtvrqtiewcbet7rewaewre
+> Bad token
+> Bad token
+> = primary expected
+> 
