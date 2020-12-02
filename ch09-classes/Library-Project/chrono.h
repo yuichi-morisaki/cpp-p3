@@ -50,7 +50,4 @@ namespace Chrono {
     Date next_sunday(const Date& d);    // next Sunday after d
     Date next_weekday(const Date& d);   // next weekday after d
 
-    Date next_workday(const Date& d);
-    int week_of_year(int y);
-
 }   // end of namespace Chrono
