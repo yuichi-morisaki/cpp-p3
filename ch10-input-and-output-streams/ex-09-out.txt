@@ -1,0 +1,6 @@
+apple
+banana
+beer
+chocolate
+melon
+whisky

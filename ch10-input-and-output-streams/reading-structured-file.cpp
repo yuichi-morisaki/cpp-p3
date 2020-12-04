@@ -148,6 +148,8 @@ istream& operator>>(istream& is, Year& y)
         is.clear(ios_base::failbit);
         return is;
     }
+    if (is.eof())
+        return is;
 
     string year_marker;
     int year;
@@ -156,23 +158,49 @@ istream& operator>>(istream& is, Year& y)
         error("bad start of year");
     y.year = year;
 
-/* -------------------------------------------------------
+/*
+    // All months in year points to the same 'Month m'
     for (Month m; is >> m; )
         y.month[m.month] = m;
----------------------------------------------------------- */
+*/
     while (true) {
         Month m;
         if (!(is >> m))
             break;
         y.month[m.month] = m;
     }
+
     end_of_loop(is, '}', "bad end of year");
     return is;
 }
 
 
-// for exercise
-void print_year(ostream& os, const Year& y);
+// ----------------------------------------------------------------
+//  exercise 10-5
+
+void print_year(ostream& os, const Year& y)
+{
+    os << "{ year " << y.year << '\n';
+
+    for (const Month& m: y.month) {
+        if (m.month == not_a_month)
+            continue;
+        os << "\t{ month " << int_to_month(m.month) << '\n';
+
+        for (int d = 1; d < 32; ++d) {
+            for (int h = 0; h < 24; ++h) {
+                if (m.day[d].hour[h] == not_a_reading)
+                    continue;
+                os << "\t\t(" << d << "d " << h << "h "
+                   << m.day[d].hour[h] << ")\n";
+            }
+        }
+        os << "\t}\n";
+    }
+    os << "}\n";
+}
+
+// ----------------------------------------------------------------
 
 
 int main()
@@ -183,11 +211,11 @@ try {
     cin >> iname;
 */
     string iname = "structured-data.txt";
-    ifstream is {iname};
-    if (!is)
+    ifstream ifs {iname};
+    if (!ifs)
         error("can't open input file ", iname);
 
-    is.exceptions(is.exceptions()|ios_base::badbit);
+    ifs.exceptions(ifs.exceptions()|ios_base::badbit);
 
 /*
     cout << "Please enter output file name\n";
@@ -195,21 +223,21 @@ try {
     cin >> oname;
 */
     string oname = "structured-data-out.txt";
-    ofstream os {oname};
-    if (!os)
+    ofstream ofs {oname};
+    if (!ofs)
         error("can't open output file ", oname);
 
     vector<Year> ys;
     while (true) {
         Year y;
-        if (!(is >> y))
+        if (!(ifs >> y))
             break;
         ys.push_back(y);
     }
-    cout << "read " << ys.size() << " years of readings=n";
+    cout << "read " << ys.size() << " years of readings\n";
 
     for (Year& y : ys)
-        print_year(os, y);
+        print_year(ofs, y);
 
     return 0;
 }
