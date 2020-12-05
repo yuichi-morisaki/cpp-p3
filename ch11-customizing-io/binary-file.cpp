@@ -5,7 +5,7 @@ using namespace std;
 
 void error(string s1, string s2) { throw runtime_error(s1 + s2); }
 
-char* as_bytes(int i)
+char* as_bytes(int& i)
 {
     void* addr = &i;
     return static_cast<char*>(addr);
