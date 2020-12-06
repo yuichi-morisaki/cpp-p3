@@ -1,0 +1,55 @@
+
+}
+;1 nruter    
+;'n\' << )(tahw.e << " :noitpecxe" << rrec    
+{ )e &noitpecxe( hctac
+}
+;0 nruter    
+
+;)emanfo ,emanfi(esrever    
+;"txt.ver-ver-21-xe" = emanfo    
+;emanfo = emanfi    
+
+;)emanfo ,emanfi(esrever    
+;}"txt.ver-21-xe"{ emanfo gnirts    
+;}"ppc.21-xe"{ emanfi gnirts    
+{ yrt
+)(niam tni
+
+}
+}    
+;)]j[enil(tup.sfo            
+)j-- ;0 => j ;1 - )(ezis.enil = j tni( rof        
+;]i[cev = enil        
+{ )i-- ;0 => i ;1 - )(ezis.cev = i tni( rof    
+
+;)enil(kcab_hsup.cev        
+)"" =! enil( fi    
+;)emanfi ," ,FOE hcaer toN"(rorre        
+))(foe.sfi!( fi    
+}    
+}        
+;"" = enil            
+;)enil(kcab_hsup.cev            
+{ )'n\' == c( fi        
+;c =+ enil        
+{ ) ;)c(teg.sfi ;c rahc( rof    
+;enil gnirts    
+;cev >gnirts<rotcev    
+
+;)emanfo ," elif tuptuo nepo t'nac"(rorre )sfo!( fi    
+;}emanfo{ sfo maertsfo    
+;)emanfi ," elif tupni nepo t'nac"(rorre )sfi!( fi    
+;}emanfi{ sfi maertsfi    
+{
+)emanfo &gnirts tsnoc ,emanfi &gnirts tsnoc(esrever diov
+
+} ;)2s + 1s(rorre_emitnur worht {
+)2s gnirts ,1s gnirts(rorre diov
+
+;dts ecapseman gnisu
+>rotcev< edulcni#
+>gnirts< edulcni#
+>tpecxedts< edulcni#
+>maertsoi< edulcni#
+>maertsf< edulcni#

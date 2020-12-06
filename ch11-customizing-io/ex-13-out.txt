@@ -1,0 +1,54 @@
+<fstream> #include
+<iostream> #include
+<stdexcept> #include
+<string> #include
+<vector> #include
+std; namespace using
+
+s1) error(string void
+} runtime_error(s1); throw {
+
+s2) string s1, error(string void
+} s2); + runtime_error(s1 throw {
+
+
+main() int
+{
+{"ex-13.cpp"}; ifname string    
+{ifname}; ifs ifstream    
+ifname); ", file input open error("can't (!ifs) if    
+
+{"ex-13-out.txt"}; ofname string    
+{ofname}; ofs ofstream    
+ofname); ", file output open error("can't (!ofs) if    
+
+vs; vector<string>    
+{}; line string    
+{ ) ifs.get(c); c; (char for    
+{ '\n') == (c if        
+line); + vs.push_back('\n'            
+""; = line            
+continue;            
+}        
+
+(isspace(c)) if        
+c; += line            
+{ else        
+ifs.unget();            
+s; string            
+s; >> ifs            
+--i) 0; >= i 1; - s.size() = i (int for            
+s[i]; += line                
+}        
+}    
+(!ifs.eof()) if    
+EOF"); reach error("can't        
+"") != (line if    
+line); + vs.push_back('\n'        
+
+vs) line: (string for    
+--i) 0; >= i 1; - line.size() = i (int for        
+ofs.put(line[i]);            
+
+0; return    
+}
