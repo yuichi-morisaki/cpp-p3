@@ -123,10 +123,16 @@ double parse_group(Token_stream& ts)
     if (t.kind != '(')
         error("primary expected");
 
-    double val = expression(ts);
-
     Token t2 = ts.get();
-    if (t.kind != ')')
+    if (t2.kind != '+' && t2.kind != '-')
+        ts.putback(t2);
+
+    double val = expression(ts);
+    if (t2.kind == '-')
+        val = -val;
+
+    Token t3 = ts.get();
+    if (t3.kind != ')')
         error("')' expected");
 
     return val;
@@ -141,15 +147,12 @@ double primary(Token_stream& ts)
             return t.value;
         case NAME:
             return sym_table.get(t.name);
-        case '+':
-            return primary(ts);
-        case '-':
-            return - primary(ts);
         case MATH_SQRT:
             return parse_fn_sqrt(ts);
         case MATH_POW:
             return parse_fn_pow(ts);
         default:
+            ts.putback(t);
             return parse_group(ts);
     }
 }
@@ -241,6 +244,9 @@ double statement(Token_stream& ts)
                 Token t2 = ts.get();
                 if (t2.kind != NAME)
                     error("set: name expected");
+                Token t3 = ts.get();
+                if (t3.kind != '=')
+                    error("set: '=' expected");
                 double rval = expression(ts);
                 sym_table.set(t2.name, rval);
                 return rval;

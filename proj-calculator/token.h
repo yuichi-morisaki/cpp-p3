@@ -40,7 +40,6 @@ class Token_stream {
     public:
         Token_stream(istream& is);
 
-        bool is_empty();
         Token get();
         void putback(Token t);
         void ignore(char t_kind);

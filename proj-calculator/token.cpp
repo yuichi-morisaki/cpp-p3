@@ -33,12 +33,6 @@ Token_stream::Token_stream(istream& is)
 }
 
 
-bool Token_stream::is_empty()
-{
-    return !full && que.empty();
-}
-
-
 Token Token_stream::get()
 {
     if (full) {
@@ -108,6 +102,7 @@ Token get_token(istringstream& iss)
             case PRINT:
             case '(': case ')': case ',':
             case '+': case '-': case '*': case '/': case '%':
+            case '=':
                 return Token {c};
             case '0': case '1': case '2': case '3': case '4':
             case '5': case '6': case '7': case '8': case '9':
