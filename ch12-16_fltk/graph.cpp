@@ -596,8 +596,67 @@ int Ellipse::y_radius() const
     return h;
 }
 
+// ----------------------------------------------------------------
+
+Marked_polyline::Marked_polyline(const string& m)
+    : mark {m}
+{
+    if (m == "")
+        mark = "*";
+}
 
 
+Marked_polyline::Marked_polyline(const string& m,
+                                 initializer_list<Point> lst)
+    : Open_polyline {lst},
+      mark {m}
+{
+    if (m == "")
+        mark = "*";
+}
+
+
+void draw_mark(Point p, char c)
+{
+    constexpr int dx = 4;
+    constexpr int dy = 4;
+
+    string m(1, c);
+    fl_draw(m.c_str(), p.x - dx, p.y - dy);
+}
+
+void Marked_polyline::draw_lines() const
+{
+    Open_polyline::draw_lines();
+
+    for (int i = 0; i < number_of_points(); ++i)
+        draw_mark(point(i), mark[i % mark.size()]);
+}
+
+// ---------------------------------------------------------------
+
+Marks::Marks(const string& m)
+    : Marked_polyline {m}
+{
+    set_color(Color {Color::invisible});
+}
+
+
+Marks::Marks(const string& m, initializer_list<Point> lst)
+    : Marked_polyline {m, lst}
+{
+    set_color(Color {Color::invisible});
+}
+
+// ----------------------------------------------------------------
+
+Mark::Mark(Point p, char c)
+    : Marks {string(1, c)}
+{
+    add(p);
+}
+
+// ----------------------------------------------------------------
 
 // ================================================================
 

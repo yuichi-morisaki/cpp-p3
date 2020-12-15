@@ -282,6 +282,30 @@ private:
     int h;      // radius on y-axis
 };
 
+// ----------------------------------------------------------------
+
+struct Marked_polyline : Open_polyline {
+    Marked_polyline(const string& marks);
+    Marked_polyline(const string& marks,
+                    initializer_list<Point>);
+
+    void draw_lines() const;
+
+private:
+    string mark;
+};
+
+
+struct Marks : Marked_polyline {
+    Marks(const string& marks);
+    Marks(const string& marks,
+          initializer_list<Point>);
+};
+
+
+struct Mark : Marks {
+    Mark(Point, char mark);
+};
 
 // ----------------------------------------------------------------
 
